@@ -3,7 +3,7 @@ cask "kb" do
   name "kb"
   desc "A CLI knowledge base backed by SQLite — store, search, and link markdown documents with YAML frontmatter metadata"
   homepage "https://github.com/misham/kb"
-  version "1.3.0"
+  version "1.3.1"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,12 +12,12 @@ cask "kb" do
   on_macos do
     on_intel do
       url "https://github.com/misham/kb/releases/download/v#{version}/kb-darwin-amd64"
-      sha256 "a766ff5c0e2259d0b0a06619043219a46b4359f4249feb16af431c25cbc4e027"
+      sha256 "9e996b8167755a7b3a32cdffa4ac95796546e001b07b1aba1327a6a63471c083"
       binary "kb-darwin-amd64", target: "kb"
     end
     on_arm do
       url "https://github.com/misham/kb/releases/download/v#{version}/kb-darwin-arm64"
-      sha256 "09fd3d64f5e08ac497e04fd1cdc0701b91479ad9bac1336a337ec9f0ccad7708"
+      sha256 "088a9dd436f7f581dce9eedcf09f9dbd085f33ad9e8d16aedd44fc4448bcf666"
       binary "kb-darwin-arm64", target: "kb"
     end
   end
@@ -25,13 +25,9 @@ cask "kb" do
   on_linux do
     on_intel do
       url "https://github.com/misham/kb/releases/download/v#{version}/kb-linux-amd64"
-      sha256 "610653914343ac1ca782ee233257cbf5498898fdb2c12b171fa5dbf8e545299d"
+      sha256 "64fd9bacd4be0d8d4d961c805c9a3d43466c36fba0201a5b4bce62968168ac30"
       binary "kb-linux-amd64", target: "kb"
     end
-  end
-
-  postflight do
-    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/kb"]
   end
 
   # No zap stanza required
